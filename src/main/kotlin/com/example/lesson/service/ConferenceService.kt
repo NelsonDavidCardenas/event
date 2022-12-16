@@ -25,6 +25,18 @@ class ConferenceService {
         return conferenceRepository.findAll()
     }
 
+    //
+//    fun calculateAndUpdateTotal (conference: Conference){
+//        val totalCalculated = conferenceRepository.sumAttendees(conference.eventId)
+//        val eventResponse = eventRepository.findById(conference.eventId)
+//        eventResponse.apply {
+//            totalAttendees=totalCalculated
+//        }
+//        eventRepository.save(eventResponse)
+//    }
+
+
+
     fun save(conference: Conference):Conference{
         return conferenceRepository.save(conference)
     }
