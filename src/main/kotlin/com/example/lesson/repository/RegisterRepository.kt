@@ -11,6 +11,5 @@ import org.springframework.stereotype.Repository
 interface RegisterRepository:JpaRepository<Register, Long> {
     fun findById(id: Long?) :Register
 
-//    @Query(nativeQuery =true)//Va a leer jpa-named.....
-//    fun sumAttendees(@Param("eventId") eventId: Long?): Double?
+
 }
