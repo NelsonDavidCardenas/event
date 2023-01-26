@@ -17,10 +17,10 @@ class Register {
     @Id
     @Column(updatable = false)
     var id: Long? = null
-    @NotBlank(message="Obligatorio")
+
     @Column(name="member_id")
     var memberId: Long? = null
-    @NotBlank(message="Obligatorio")
+
     @Column(name="conference_id")
     var conferenceId: Long? = null
     var code: String? = null

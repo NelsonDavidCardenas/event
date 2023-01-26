@@ -28,7 +28,15 @@ class EventService {
     }
 
     fun save(event: Event):Event{
-        return eventRepository.save(event)
+        try {
+            event.description?.takeIf{ it.trim().isNotEmpty()}
+                ?:throw Exception("No debe ser vacio")
+
+            return eventRepository.save(event)
+        }
+        catch(ex:Exception){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        }
     }
 
     fun update (event: Event): Event {

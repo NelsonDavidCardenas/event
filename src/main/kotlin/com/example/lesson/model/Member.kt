@@ -21,7 +21,7 @@ class Member {
 
     @Email(message = "Incorrect")
     var email: String? = null
-    @NotBlank(message = "incompleto")
+
     var age: Long? = null
 
 }

@@ -22,7 +22,15 @@ class MemberService {
     }
 
     fun save(member: Member):Member{
-        return memberRepository.save(member)
+        try {
+            member.fullname?.takeIf{ it.trim().isNotEmpty()}
+                ?:throw Exception("No debe ser vacio")
+
+            return memberRepository.save(member)
+        }
+        catch(ex:Exception){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        }
     }
 
     fun update (member: Member):Member {
